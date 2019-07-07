@@ -40,6 +40,27 @@ userDetailsService用来指定获取用户信息的服务，因为token验证最
 
 persistentTokenRepository是指明token的持久化方案。remember me功能是基于token，持久化方案有两种，一种基于内存，使用的是InMemoryTokenRepositoryImpl，一种基于数据库，使用的是JdbcTokenRepositoryImpl。这里我选择基于数据库的方式。
 
+```java
+//datasource的配置是通过配置文件加载过来的
+    @Autowired
+    DataSource dataSource;
+
+    //注入BCryptPasswordEncoder，不然会报错
+    @Bean
+    PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    PersistentTokenRepository persistentTokenRepository(){
+
+        JdbcTokenRepositoryImpl jdbcTokenRepository = new JdbcTokenRepositoryImpl();
+        jdbcTokenRepository.setDataSource(dataSource);
+        return jdbcTokenRepository;
+    }
+```
+
+MyUserDetailsService跟第二章是一样的，功能就是从数据库获取用户信息。
 
 我这里继续使用第二章的数据库配置。另外还需要在数据库里新建一张名为persistent_logins 的表，这是JdbcTokenRepositoryImpl缺省要使用的存放token的表，建表语句如下：
 
