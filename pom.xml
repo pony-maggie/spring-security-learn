@@ -11,6 +11,7 @@
 	<modules>
 		<module>spring-security-learn-chapter1</module>
 		<module>spring-security-learn-chapter2</module>
+		<module>spring-security-learn-chapter3</module>
 	</modules>
 
 	<parent>
