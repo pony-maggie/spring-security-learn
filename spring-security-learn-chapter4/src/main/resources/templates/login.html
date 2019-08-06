@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Spring Security Learn </title>
+    </head>
+    <body>
+    <br>
+    <br>
+    <h3>短信验证登录</h3>
+    <form action="/authentication/mobile" method="post">
+        <table>
+            <tr>
+                <td>手机号：</td>
+                <td><input type="text" name="mobile" value="12345678901"/></td>
+            </tr>
+            <tr>
+                <td>短信验证码：</td>
+                <td><input type="text" name="smsCode"/></td>
+                <a href="/code/sms?mobile=12345678901">发送验证码</a>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">登录</button></td>
+            </tr>
+        </table>
+    </form>
+    </body>
+</html>

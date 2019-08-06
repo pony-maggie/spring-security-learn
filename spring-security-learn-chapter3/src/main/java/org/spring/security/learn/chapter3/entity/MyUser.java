@@ -5,9 +5,9 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name="t_user")
+@Table(name = "t_user")
 public class MyUser {
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;

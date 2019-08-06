@@ -1,0 +1,18 @@
+server:
+  port: 9090
+
+my:
+  security:
+    code:
+      sms:
+        length: 4
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring-security-learn-chapter2
+    username: root
+    password: 11111111
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database: mysql
+    ### 运行时输出SQL语句
+    show-sql: true
